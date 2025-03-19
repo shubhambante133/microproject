@@ -1,47 +1,86 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:gravity="center"
-    android:orientation="vertical"
-    android:padding="20dp">
+    android:layout_height="match_parent">
 
-   <TextView
-       android:id="@+id/tvTitle"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:text="Login"
-       android:textSize="24sp"
-       android:textStyle="bold"
-       android:layout_marginBottom="20dp" />
+    <!-- Full-Screen Background Image -->
 
-   <EditText
-       android:id="@+id/etUsername"
-       android:layout_width="match_parent"
-       android:layout_height="wrap_content"
-       android:hint="Enter Username"
-       android:inputType="textPersonName"
-       android:padding="10dp"
-       android:background="@android:drawable/edit_text" />
+    <!-- App Title -->
 
-   <EditText
-       android:id="@+id/etPassword"
-       android:layout_width="match_parent"
-       android:layout_height="wrap_content"
-       android:hint="Enter Password"
-       android:inputType="textPassword"
-       android:padding="10dp"
-       android:background="@android:drawable/edit_text"
-       android:layout_marginTop="10dp" />
+    <ImageView
+        android:id="@+id/ivBackground"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/backgroundimage" />
 
-   <Button
-       android:id="@+id/btnLogin"
-       android:layout_width="match_parent"
-       android:layout_height="wrap_content"
-       android:text="Login"
-       android:layout_marginTop="20dp"
-       android:background="@color/teal_700"
-       android:textColor="#FFFFFF"
-       android:padding="10dp" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Voting System"
+        android:layout_gravity="top|center"
+        android:textStyle="bold"
+        android:textSize="50dp"
+        android:layout_marginTop="130dp"
+        android:textColor="#FFFFFF"
+        android:shadowColor="#807b7a"
+        android:shadowDx="10"
+        android:shadowDy="6"
+        android:shadowRadius="9"
+        />
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/voting"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="230dp"
+        />
 
-</LinearLayout>
+
+    <!-- Login UI Container -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="20dp"
+        android:layout_marginTop="400dp">
+
+        <EditText
+            android:id="@+id/etUsername"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:drawable/edit_text"
+            android:hint="Enter Username"
+            android:inputType="textPersonName"
+            android:padding="10dp" />
+
+        <EditText
+            android:id="@+id/etPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@android:drawable/edit_text"
+            android:hint="Enter Password"
+            android:inputType="textPassword"
+            android:padding="10dp" />
+
+        <Button
+            android:id="@+id/btnLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|center"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="10dp"
+            android:padding="10dp"
+            android:text="Login"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:elevation="8dp"/>
+
+
+    </LinearLayout>
+
+</FrameLayout>

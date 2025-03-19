@@ -1,0 +1,461 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <!-- Background Image -->
+    <ImageView
+        android:id="@+id/ivBackground"
+        android:layout_width="match_parent"
+        android:layout_height="1000dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/backgraund2" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|center"
+        android:background="#959695"
+        android:padding="10dp"
+        android:shadowColor="#807b7a"
+        android:shadowDx="10"
+        android:shadowDy="6"
+        android:shadowRadius="9"
+        android:text="Voter list"
+        android:textColor="#fff"
+        android:textSize="50sp"
+        android:textStyle="bold"
+        android:gravity="top|center" />
+
+    <!-- Party Section -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="5dp"
+        android:background="#CCFFFFFF"
+        android:layout_marginTop="90dp">
+
+        <ImageView
+            android:id="@+id/ivcandidateLogo"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginEnd="16dp"
+            android:src="@drawable/candidate1"
+            android:scaleType="centerCrop" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvcandidateName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Candidate Name"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="#000000"
+                android:gravity="center_vertical" />
+
+            <TextView
+                android:id="@+id/tvpartyName1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Party Name"
+                android:textSize="18sp"
+                android:textColor="#555555"
+                android:gravity="center_vertical" />
+
+            <TextView
+                android:id="@+id/tvAge1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Age"
+                android:textSize="18sp"
+                android:textColor="#555555"
+                android:gravity="center_vertical" />
+        </LinearLayout>
+
+        <!-- Vote Button -->
+        <Button
+            android:id="@+id/btnVote"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Vote"
+            android:textSize="18sp"
+            android:layout_marginTop="15dp"
+            android:backgroundTint="#4CAF50"
+            android:textColor="#FFFFFF" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="5dp"
+        android:background="#CCFFFFFF"
+        android:layout_marginTop="190dp">
+
+    <ImageView
+        android:id="@+id/ivcandidateLogo2"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginEnd="16dp"
+        android:src="@drawable/candidate1"
+        android:scaleType="centerCrop" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvcandidateName2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Candidate Name"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="#000000"
+                android:gravity="center_vertical" />
+
+            <TextView
+                android:id="@+id/tvpartyName2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Party Name"
+                android:textSize="18sp"
+                android:textColor="#555555"
+                android:gravity="center_vertical" />
+
+            <TextView
+                android:id="@+id/tvAge2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Age"
+                android:textSize="18sp"
+                android:textColor="#555555"
+                android:gravity="center_vertical" />
+
+        </LinearLayout>
+
+        <!-- Vote Button -->
+        <Button
+            android:id="@+id/btnVote2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Vote"
+            android:textSize="18sp"
+            android:layout_marginTop="15dp"
+            android:backgroundTint="#4CAF50"
+            android:textColor="#FFFFFF" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="5dp"
+        android:background="#CCFFFFFF"
+        android:layout_marginTop="290dp">
+
+        <ImageView
+            android:id="@+id/ivcandidateLogo3"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginEnd="16dp"
+            android:src="@drawable/candidate1"
+            android:scaleType="centerCrop" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvcandidateName3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Candidate Name"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="#000000"
+                android:gravity="center_vertical" />
+
+            <TextView
+                android:id="@+id/tvpartyName3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Party Name"
+                android:textSize="18sp"
+                android:textColor="#555555"
+                android:gravity="center_vertical" />
+
+            <TextView
+                android:id="@+id/tvAge3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Age"
+                android:textSize="18sp"
+                android:textColor="#555555"
+                android:gravity="center_vertical" />
+        </LinearLayout>
+
+        <!-- Vote Button -->
+        <Button
+            android:id="@+id/btnVote3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Vote"
+            android:textSize="18sp"
+            android:layout_marginTop="15dp"
+            android:backgroundTint="#4CAF50"
+            android:textColor="#FFFFFF" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="5dp"
+        android:background="#CCFFFFFF"
+        android:layout_marginTop="390dp">
+
+        <ImageView
+            android:id="@+id/ivcandidateLogo4"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginEnd="16dp"
+            android:src="@drawable/candidate1"
+            android:scaleType="centerCrop" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvcandidateName4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Candidate Name"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="#000000"
+                android:gravity="center_vertical" />
+
+            <TextView
+                android:id="@+id/tvpartyName4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Party Name"
+                android:textSize="18sp"
+                android:textColor="#555555"
+                android:gravity="center_vertical" />
+
+            <TextView
+                android:id="@+id/tvAge4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Age"
+                android:textSize="18sp"
+                android:textColor="#555555"
+                android:gravity="center_vertical" />
+        </LinearLayout>
+
+        <!-- Vote Button -->
+        <Button
+            android:id="@+id/btnVote4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Vote"
+            android:textSize="18sp"
+            android:layout_marginTop="15dp"
+            android:backgroundTint="#4CAF50"
+            android:textColor="#FFFFFF" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="5dp"
+        android:background="#CCFFFFFF"
+        android:layout_marginTop="490dp">
+
+        <ImageView
+            android:id="@+id/ivcandidateLogo5"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginEnd="16dp"
+            android:src="@drawable/candidate1"
+            android:scaleType="centerCrop" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvcandidateName5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Candidate Name"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="#000000"
+                android:gravity="center_vertical" />
+
+            <TextView
+                android:id="@+id/tvpartyName5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Party Name"
+                android:textSize="18sp"
+                android:textColor="#555555"
+                android:gravity="center_vertical" />
+
+            <TextView
+                android:id="@+id/tvAge5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Age"
+                android:textSize="18sp"
+                android:textColor="#555555"
+                android:gravity="center_vertical" />
+        </LinearLayout>
+
+        <!-- Vote Button -->
+        <Button
+            android:id="@+id/btnVote5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Vote"
+            android:textSize="18sp"
+            android:layout_marginTop="15dp"
+            android:backgroundTint="#4CAF50"
+            android:textColor="#FFFFFF" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="5dp"
+        android:background="#CCFFFFFF"
+        android:layout_marginTop="590dp">
+
+        <ImageView
+            android:id="@+id/ivcandidateLogo6"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginEnd="16dp"
+            android:src="@drawable/candidate1"
+            android:scaleType="centerCrop" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvcandidateName6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Candidate Name"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="#000000"
+                android:gravity="center_vertical" />
+
+            <TextView
+                android:id="@+id/tvpartyName6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Party Name"
+                android:textSize="18sp"
+                android:textColor="#555555"
+                android:gravity="center_vertical" />
+
+            <TextView
+                android:id="@+id/tvAge6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Age"
+                android:textSize="18sp"
+                android:textColor="#555555"
+                android:gravity="center_vertical" />
+        </LinearLayout>
+
+        <!-- Vote Button -->
+        <Button
+            android:id="@+id/btnVote6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Vote"
+            android:textSize="18sp"
+            android:layout_marginTop="15dp"
+            android:backgroundTint="#4CAF50"
+            android:textColor="#FFFFFF" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="5dp"
+        android:background="#CCFFFFFF"
+        android:layout_marginTop="690dp">
+
+        <ImageView
+            android:id="@+id/nota"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginEnd="16dp"
+            android:src="@drawable/wrong"
+            android:scaleType="centerCrop" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/Nota"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="None of above"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="#000000"
+                android:layout_marginTop="25dp"
+                android:gravity="center_vertical" />
+
+
+        </LinearLayout>
+
+        <!-- Vote Button -->
+        <Button
+            android:id="@+id/btnNota"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nota"
+            android:textSize="18sp"
+            android:layout_marginTop="15dp"
+            android:backgroundTint="#4CAF50"
+            android:textColor="#FFFFFF" />
+    </LinearLayout>
+
+
+
+
+</FrameLayout>
+
