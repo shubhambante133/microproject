@@ -1,54 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:padding="10dp"
-    android:layout_marginTop="5dp"
-    android:background="#d6d4d4"
-    >
+    android:background="@color/cardview_light_background"
+    android:padding="8dp">
 
-
+    <!-- Candidate Image/NOTA Icon -->
     <ImageView
-        android:id="@+id/candidate_image"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:src="@drawable/candidate1"
-        android:layout_marginEnd="8dp"
-        android:contentDescription="Candidate Image"/>
+        android:id="@+id/candidateImage"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:src="@drawable/candidate1" />
 
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_weight="3"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/candidate_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Candidate Name"
-            android:textSize="16sp"
-            android:textStyle="bold"/>
-
-        <TextView
-            android:id="@+id/candidate_party"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Party"
-            android:textSize="14sp"/>
-
-        <TextView
-            android:id="@+id/candidate_age"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Age"
-            android:textSize="14sp"/>
-    </LinearLayout>
-
-    <Button
-        android:id="@+id/vote_button"
+    <!-- Candidate Info Text -->
+    <TextView
+        android:id="@+id/candidateInfoTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Vote"/>
-</LinearLayout>
+        android:layout_toEndOf="@id/candidateImage"
+        android:layout_marginStart="10dp"
+        android:text="Candidate Info"
+        android:textSize="16sp"
+        android:textColor="@android:color/black"
+        android:layout_centerVertical="true" />
+
+    <!-- Vote Button -->
+    <Button
+        android:id="@+id/voteButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Vote"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:padding="8dp"
+        android:textColor="@android:color/white"
+        android:backgroundTint="@android:color/holo_blue_dark" />
+</RelativeLayout>

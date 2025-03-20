@@ -1,40 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:padding="10dp"
-    android:layout_marginTop="5dp"
-    android:background="#d6d4d4"
-    >
+    android:background="@color/cardview_light_background"
+    android:padding="8dp">
 
-
+    <!-- NOTA Icon -->
     <ImageView
-        android:id="@+id/Nota_image"
+        android:id="@+id/notaImageView"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:src="@drawable/wrong"
+        android:layout_alignParentStart="true"
+        android:layout_centerVertical="true"
+        android:scaleType="centerCrop"
         android:layout_marginEnd="8dp"
-        android:contentDescription="Nota Image"/>
+        android:contentDescription="NOTA Icon" />
 
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_weight="3"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:layout_marginTop="14dp"
-            android:text="None of the Above (NOTA)"
-            android:textSize="18dp" />
-    </LinearLayout>
-
-    <Button
-        android:id="@+id/nota_button"
+    <!-- NOTA Info -->
+    <TextView
+        android:id="@+id/notaInfoTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Vote"/>
-</LinearLayout>
+        android:text="None of the Above (NOTA)"
+        android:textSize="16sp"
+        android:textColor="@android:color/black"
+        android:layout_toEndOf="@id/notaImageView"
+        android:layout_centerVertical="true"
+        android:padding="4dp" />
+
+    <!-- Vote for NOTA Button -->
+    <Button
+        android:id="@+id/notaVoteButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Vote NOTA"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:padding="8dp"
+        android:textColor="@android:color/white"
+        android:backgroundTint="@android:color/holo_red_dark" />
+</RelativeLayout>

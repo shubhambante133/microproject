@@ -1,108 +1,59 @@
 package com.example.votingsystem;
 
-import androidx.appcompat.app.AppCompatActivity;
+import android.content.Context;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import android.util.Log;
+import android.widget.ListView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+
 import java.util.ArrayList;
-import java.util.List;
 
 public class DashboardActivity extends AppCompatActivity {
 
-    private LinearLayout candidateListLayout;
-    private List<Candidate> candidates;
+    private ListView candidateListView;
+    private static final String TAG = "DashboardActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dashboard); // Ensure this matches your XML file
+        setContentView(R.layout.activity_dashboard);
 
-        candidateListLayout = findViewById(R.id.candidateContainer);
-
-        // Check if candidateListLayout is null (avoid NullPointerException)
-        if (candidateListLayout == null) {
-            throw new NullPointerException("Error: candidateContainer is null. Check activity_dashboard.xml.");
-        }
-
-        // Initialize candidate data
-        candidates = new ArrayList<>();
-        candidates.add(new Candidate("Candidate 1", "Party A", 45));
-        candidates.add(new Candidate("Candidate 2", "Party B", 38));
-        candidates.add(new Candidate("Candidate 3", "Party C", 52));
-        candidates.add(new Candidate("Candidate 4", "Party D", 41));
-        candidates.add(new Candidate("Candidate 5", "Party E", 60));
-        candidates.add(new Candidate("Candidate 6", "Party F", 35));
-
-        // Add candidates to the layout
-        for (Candidate candidate : candidates) {
-            addCandidateView(candidate);
-        }
-
-        // Add NOTA (None of the Above) option
-        addNotaView();
+        candidateListView = findViewById(R.id.candidateListView);
+        display();  // Load candidates dynamically
     }
 
-    private void addCandidateView(Candidate candidate) {
-        View candidateView = LayoutInflater.from(this).inflate(R.layout.candidate_item, candidateListLayout, false);
+    // ✅ Load candidates into ListView
+    public void display() {
+        ArrayList<Manageusers.Voters> candidateList = new ArrayList<>();
 
-        TextView nameTextView = candidateView.findViewById(R.id.candidate_name);
-        TextView partyTextView = candidateView.findViewById(R.id.candidate_party);
-        TextView ageTextView = candidateView.findViewById(R.id.candidate_age);
+        // ✅ Fetching candidate data from database
+        SQLiteDatabase db = openOrCreateDatabase("VotingSystem", Context.MODE_PRIVATE, null);
+        Cursor c = db.rawQuery("SELECT * FROM Myvoters", null);
 
-        if (nameTextView != null && partyTextView != null && ageTextView != null) {
-            nameTextView.setText(candidate.getName());
-            partyTextView.setText(candidate.getParty());
-            ageTextView.setText(String.valueOf(candidate.getAge()));
-        } else {
-            throw new NullPointerException("Error: One or more TextViews are null in candidate_item.xml.");
+        if (c.moveToFirst()) {
+            do {
+                Manageusers.Voters v = new Manageusers.Voters();
+                v.name = c.getString(1);
+                v.pparty = c.getString(4);
+                v.age = c.getString(5);
+                candidateList.add(v);
+            } while (c.moveToNext());
         }
+        c.close();  // Close the cursor
 
-        candidateView.findViewById(R.id.vote_button).setOnClickListener(v -> {
-            Toast.makeText(DashboardActivity.this, "Voted for " + candidate.getName(), Toast.LENGTH_SHORT).show();
-        });
+        // ✅ Add NOTA item dynamically
+        Manageusers.Voters notaItem = new Manageusers.Voters();
+        notaItem.name = "NOTA";
+        notaItem.pparty = "None of the Above";
+        notaItem.age = "-";
+        candidateList.add(notaItem);
 
-        candidateListLayout.addView(candidateView);
-    }
-
-    private void addNotaView() {
-        View notaView = LayoutInflater.from(this).inflate(R.layout.nota_item, candidateListLayout, false);
-
-        if (notaView != null) {
-            notaView.findViewById(R.id.nota_button).setOnClickListener(v -> {
-                Toast.makeText(DashboardActivity.this, "Voted for NOTA", Toast.LENGTH_SHORT).show();
-            });
-
-            candidateListLayout.addView(notaView);
-        } else {
-            throw new NullPointerException("Error: NOTA layout is null.");
-        }
-    }
-
-    // Candidate data model
-    private static class Candidate {
-        private final String name;
-        private final String party;
-        private final int age;
-
-        public Candidate(String name, String party, int age) {
-            this.name = name;
-            this.party = party;
-            this.age = age;
-        }
-
-        public String getName() {
-            return name;
-        }
-
-        public String getParty() {
-            return party;
-        }
-
-        public int getAge() {
-            return age;
-        }
+        // ✅ Use CandidateAdapter to populate ListView
+        CandidateAdapter adapter = new CandidateAdapter(this, candidateList);
+        candidateListView.setAdapter(adapter);
     }
 }
