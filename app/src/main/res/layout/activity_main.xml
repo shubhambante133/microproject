@@ -1,86 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!-- Full-Screen Background Image -->
-
-    <!-- App Title -->
-
+    <!-- Background Image -->
     <ImageView
-        android:id="@+id/ivBackground"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
-        android:src="@drawable/backgroundimage" />
+        android:src="@drawable/backgroundimage"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Voting System"
-        android:layout_gravity="top|center"
-        android:textStyle="bold"
-        android:textSize="50dp"
-        android:layout_marginTop="130dp"
-        android:textColor="#FFFFFF"
-        android:shadowColor="#807b7a"
-        android:shadowDx="10"
-        android:shadowDy="6"
-        android:shadowRadius="9"
-        />
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/voting"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="230dp"
-        />
+    <!-- Transparent Black Overlay (Optional for better visibility) -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#80000000"/> <!-- Semi-transparent black -->
 
-
-    <!-- Login UI Container -->
+    <!-- Login Form UI -->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@android:color/transparent"
+        android:layout_height="match_parent"
+        android:padding="24dp"
         android:gravity="center"
-        android:orientation="vertical"
-        android:padding="20dp"
-        android:layout_marginTop="400dp">
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Voting System"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="20dp"
+            android:textColor="#FFFFFF"/>
 
         <EditText
             android:id="@+id/etUsername"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@android:drawable/edit_text"
             android:hint="Enter Username"
-            android:inputType="textPersonName"
-            android:padding="10dp" />
+            android:padding="20dp"
+            android:background="@android:drawable/editbox_background"/>
 
         <EditText
             android:id="@+id/etPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:background="@android:drawable/edit_text"
             android:hint="Enter Password"
             android:inputType="textPassword"
-            android:padding="10dp" />
+            android:padding="20dp"
+            android:layout_marginTop="10dp"
+            android:background="@android:drawable/editbox_background"/>
 
         <Button
             android:id="@+id/btnLogin"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="right|center"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="10dp"
-            android:padding="10dp"
             android:text="Login"
-            android:textColor="#FFFFFF"
-            android:textStyle="bold"
-            android:textSize="18sp"
-            android:elevation="8dp"/>
-
-
+            android:layout_marginTop="20dp"
+            android:background="#6200EE"
+            android:textColor="#FFFFFF"/>
     </LinearLayout>
 
-</FrameLayout>
+</RelativeLayout>

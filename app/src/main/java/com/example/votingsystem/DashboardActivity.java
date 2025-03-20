@@ -1,35 +1,42 @@
 package com.example.votingsystem;
 
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.Toast;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class DashboardActivity extends AppCompatActivity {
+    private LinearLayout candidateContainer; // Reference to the LinearLayout
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
 
-        // Sabhi Vote Buttons ke liye Click Listener Set Karna
-        setVoteButtonClickListener(R.id.btnVote);
-        setVoteButtonClickListener(R.id.btnVote2);
-        setVoteButtonClickListener(R.id.btnVote3);
-        setVoteButtonClickListener(R.id.btnVote4);
-        setVoteButtonClickListener(R.id.btnVote5);
-        setVoteButtonClickListener(R.id.btnVote6);
+        // Initialize LinearLayout from XML
+        candidateContainer = findViewById(R.id.candidateContainer);
+
+        // Ensure that the LinearLayout is not null
+        if (candidateContainer == null) {
+            throw new NullPointerException("Error: candidateContainer is null. Check your XML layout ID.");
+        }
+
+        // Add some candidate views dynamically for testing
+        addCandidateView("Candidate 1");
+        addCandidateView("Candidate 2");
     }
 
-    // Ek Common Function jo sabhi Vote Buttons ke liye kaam karega
-    private void setVoteButtonClickListener(int buttonId) {
-        Button button = findViewById(buttonId);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "Thank you for voting!", Toast.LENGTH_SHORT).show();
-            }
-        });
+    private void addCandidateView(String candidateName) {
+        TextView textView = new TextView(this);
+        textView.setText(candidateName);
+        textView.setTextSize(18);
+        textView.setPadding(10, 10, 10, 10);
+
+        // Add the TextView to the LinearLayout
+        if (candidateContainer != null) {
+            candidateContainer.addView(textView);
+        } else {
+            throw new NullPointerException("candidateContainer is null inside addCandidateView");
+        }
     }
 }
