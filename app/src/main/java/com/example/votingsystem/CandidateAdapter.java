@@ -61,7 +61,7 @@ public class CandidateAdapter extends ArrayAdapter<Manageusers.Voters> {
             Toast.makeText(context, voteMessage, Toast.LENGTH_LONG).show();
 
             // ✅ Return to MainActivity after voting
-            Intent intent = new Intent(context, Loginactivity.class);
+            Intent intent = new Intent(context, MainActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             context.startActivity(intent);
         });
