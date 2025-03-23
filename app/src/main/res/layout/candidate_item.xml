@@ -8,7 +8,7 @@
 
     <!-- Candidate Image/NOTA Icon -->
     <ImageView
-        android:id="@+id/candidateImage"
+        android:id="@+id/candidate_image"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_alignParentStart="true"
@@ -20,7 +20,7 @@
         android:id="@+id/candidateInfoTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toEndOf="@id/candidateImage"
+        android:layout_toEndOf="@id/candidate_image"
         android:layout_marginStart="10dp"
         android:text="Candidate Info"
         android:textSize="16sp"

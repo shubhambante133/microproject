@@ -42,7 +42,7 @@ public class CandidateAdapter extends ArrayAdapter<Manageusers.Voters> {
         // ✅ Find and set views
         TextView candidateInfoTextView = itemView.findViewById(R.id.candidateInfoTextView);
         Button voteButton = itemView.findViewById(R.id.voteButton);
-        ImageView candidateImage = itemView.findViewById(R.id.candidateImage);
+        ImageView candidateImage = itemView.findViewById(R.id.candidate_image);
 
         // ✅ Check if it's NOTA
         if (currentCandidate.name.equals("NOTA")) {

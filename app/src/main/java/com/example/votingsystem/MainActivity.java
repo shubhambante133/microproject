@@ -28,9 +28,6 @@ public class MainActivity extends AppCompatActivity {
         btnLogin = findViewById(R.id.btnLogin);
         btnSignUp = findViewById(R.id.btnSignUp);
 
-        // Open or create database
-        db = openOrCreateDatabase("VotingSystemDB", MODE_PRIVATE, null);
-        createUsersTable();
 
         // Handle Login Button Click
         btnLogin.setOnClickListener(new View.OnClickListener() {
@@ -47,17 +44,6 @@ public class MainActivity extends AppCompatActivity {
                 goToSignUp();
             }
         });
-    }
-
-    // Create users table if not exists
-    private void createUsersTable() {
-        String createTableQuery = "CREATE TABLE IF NOT EXISTS Users (" +
-                "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                "fullname TEXT, " +
-                "email TEXT, " +
-                "username TEXT UNIQUE, " +
-                "password TEXT)";
-        db.execSQL(createTableQuery);
     }
 
     private void loginUser() {
@@ -82,7 +68,8 @@ public class MainActivity extends AppCompatActivity {
 
     // Check if user exists in the database
     private boolean checkUser(String username, String password) {
-        Cursor cursor = db.rawQuery("SELECT * FROM users WHERE username=? AND password=?", new String[]{username, password});
+        db = openOrCreateDatabase("VotingSystem", MODE_PRIVATE, null);
+        Cursor cursor = db.rawQuery("SELECT * FROM Users WHERE etUsernameSignUp=? AND etPasswordSignUp=?", new String[]{username, password});
         boolean userExists = cursor.moveToFirst();
         cursor.close();
         return userExists;

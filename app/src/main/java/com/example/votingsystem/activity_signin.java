@@ -1,8 +1,10 @@
 package com.example.votingsystem;
 
 import android.content.ContentValues;
+import android.content.Context;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteStatement;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -30,7 +32,7 @@ public class activity_signin extends AppCompatActivity {
         btnBackToLogin = findViewById(R.id.btnBackToLogin);
 
         // Open or create database
-        db = openOrCreateDatabase("VotingSystemDB", MODE_PRIVATE, null);
+        db = openOrCreateDatabase("VotingSystem", MODE_PRIVATE, null);
 
         // Handle Create Account Button Click
         btnSignUpConfirm.setOnClickListener(new View.OnClickListener() {
@@ -61,25 +63,42 @@ public class activity_signin extends AppCompatActivity {
             return;
         }
 
-        // Insert user data into database
-        if (insertUser(fullName, email, username, password)) {
-            Toast.makeText(this, "Account Created Successfully!", Toast.LENGTH_SHORT).show();
-            goToLogin();
-        } else {
-            Toast.makeText(this, "Account Creation Failed. Username might already exist.", Toast.LENGTH_SHORT).show();
-        }
+        // Call insert with parameters
+        insert(fullName, email, username, password);
     }
 
-    // Insert new user into database
-    private boolean insertUser(String fullName, String email, String username, String password) {
-        ContentValues values = new ContentValues();
-        values.put("fullname", fullName);
-        values.put("email", email);
-        values.put("username", username);
-        values.put("password", password);
 
-        long result = db.insert("users", null, values);
-        return result != -1; // Return true if insert was successful
+    // Insert new user into database
+    public void insert(String fullName, String email, String username, String password) {
+        try {
+            // Validate input
+            if (fullName.isEmpty() || email.isEmpty() || username.isEmpty() || password.isEmpty()) {
+                Toast.makeText(this, "Please fill all fields!", Toast.LENGTH_LONG).show();
+                return;
+            }
+
+            // Open or create database
+            SQLiteDatabase db = openOrCreateDatabase("VotingSystem", Context.MODE_PRIVATE, null);
+
+            // Create table if not exists
+            db.execSQL("CREATE TABLE IF NOT EXISTS Users (" +
+                    "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                    "etFullName TEXT, etEmail TEXT, etUsernameSignUp TEXT, etPasswordSignUp TEXT)");
+
+            // Insert query
+            String sql = "INSERT INTO Users (etFullName, etEmail, etUsernameSignUp, etPasswordSignUp) VALUES (?, ?, ?, ?)";
+            SQLiteStatement statement = db.compileStatement(sql);
+            statement.bindString(1, fullName);
+            statement.bindString(2, email);
+            statement.bindString(3, username);
+            statement.bindString(4, password);
+            statement.execute();
+
+            Toast.makeText(this, "Account Created Successfully", Toast.LENGTH_LONG).show();
+            clearFields();
+        } catch (Exception e) {
+            Toast.makeText(this, "Account Creation Failed: " + e.getMessage(), Toast.LENGTH_LONG).show();
+        }
     }
 
     private void goToLogin() {
@@ -87,4 +106,20 @@ public class activity_signin extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
+    private void clearFields() {
+        etFullName.setText("");
+        etEmail.setText("");
+        etUsernameSignUp.setText("");
+        etPasswordSignUp.setText("");
+        etUsernameSignUp.requestFocus();
+        etPasswordSignUp.requestFocus();
+    }
+    // You can either remove this or define a valid class
+    static class Users {
+        String name;
+        String email;
+        String username;
+        String password;
+    }
+
 }
