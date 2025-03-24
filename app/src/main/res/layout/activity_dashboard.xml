@@ -9,20 +9,19 @@
         android:id="@+id/titleText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#F5F5F5"
+        android:gravity="center"
+        android:padding="8dp"
         android:text="VOTER LIST"
         android:textSize="40sp"
-        android:textStyle="bold"
-        android:gravity="center"
-        android:layout_marginTop="16dp"
-        android:background="#F5F5F5"
-        android:padding="8dp"/>
+        android:textStyle="bold" />
 
     <ListView
         android:id="@+id/candidateListView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/titleText"
-        android:layout_marginTop="10dp"
+        android:layout_below="@+id/titleText"
+        android:layout_marginTop="27dp"
         android:divider="@android:color/darker_gray"
         android:dividerHeight="1dp" />
 
